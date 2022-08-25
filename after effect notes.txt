@@ -1,0 +1,41 @@
+.value.toFixed(0)
+
+Math.round(effect("Slider Control")("Slider"))﻿
+
+effect("Slider Control")("Slider").value.toFixed(0) 
+
+/*
+
+After effects code for counting numbers animation.
+Includes commas for large numbers.
+*1000 added for large numbers
+
+How to vids
+https://www.youtube.com/watch?v=LFeYJFnKqC4
+
+*/
+
+var num = effect("Slider Control")("Slider”)*1000
+num = Comma(num);
+[num]
+
+function Comma(number)
+{
+number = '' + Math.round(number);
+if (number.length > 3)
+{
+var mod = number.length % 3;
+var output = (mod > 0 ? (number.substring(0,mod)) : '');
+for (i=0 ; i < Math.floor(number.length / 3); i++)
+{
+if ((mod == 0) && (i == 0))
+output += number.substring(mod+ 3 * i, mod + 3 * i + 3);
+else
+output+= ',' + number.substring(mod + 3 * i, mod + 3 * i + 3);
+}
+return (output);
+}
+else return number;
+}
+
+
